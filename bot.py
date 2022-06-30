@@ -68,16 +68,24 @@ def newCases(update, context):
             pass
 
         #** Making Sense of Numbers **#
-        date = "\nAs of" + newCases[0]
+        date = "\nDaily Caseload\nAs of" + newCases[0]
         localPCR = newCases[2]
         localART = newCases[4]
+        localTotal = int(localPCR.replace(",", "")) + int(localART.replace(",", ""))
+
         importPCR = newCases[6].split("Imported")[0]
         importART = newCases[7]
+        importTotal = int(importPCR.replace(",", "")) + int(importART.replace(",", ""))
+
+        totalNew = localTotal + importTotal
+
         discharged = newCases[9]
         deaths = newCases[11]
         ratio = newCases[13]
         
-        newCasesStatement = date + "\nLocal PCR: " + localPCR + "\nLocal ART: " + localART + "\nImported PCR: " + importPCR + "\nImported ART: " + importART
+        newCasesStatement = date + "\nLocal PCR: " + localPCR + "\nLocal ART: " + localART + "\nTotal New Local Cases: " + str(localTotal) + "\n"
+        newCasesStatement += "\nImported PCR: " + importPCR + "\nImported ART: " + importART + "\nTotal New Imported Cases: " + str(importTotal) + "\n"
+        newCasesStatement += "\nTotal New Cases: " + str(totalNew) + "\n"
         newCasesStatement += "\nDischarged: " + discharged + "\nDeaths: " + deaths + "\nWeek on Week Infection Ratio: " + ratio
         update.message.reply_text(newCasesStatement)
         
@@ -290,14 +298,21 @@ def all(update, context):
         date = "\nDaily Caseload\nAs of" + newCases[0]
         localPCR = newCases[2]
         localART = newCases[4]
+        localTotal = int(localPCR.replace(",", "")) + int(localART.replace(",", ""))
+
         importPCR = newCases[6].split("Imported")[0]
         importART = newCases[7]
+        importTotal = int(importPCR.replace(",", "")) + int(importART.replace(",", ""))
+
+        totalNew = localTotal + importTotal
+
         discharged = newCases[9]
         deaths = newCases[11]
         ratio = newCases[13]
         
-
-        newCasesStatement = date + "\nLocal PCR: " + localPCR + "\nLocal ART: " + localART + "\nImported PCR: " + importPCR + "\nImported ART: " + importART
+        newCasesStatement = date + "\nLocal PCR: " + localPCR + "\nLocal ART: " + localART + "\nTotal New Local Cases: " + str(localTotal) + "\n"
+        newCasesStatement += "\nImported PCR: " + importPCR + "\nImported ART: " + importART + "\nTotal New Imported Cases: " + str(importTotal) + "\n"
+        newCasesStatement += "\nTotal New Cases: " + str(totalNew) + "\n"
         newCasesStatement += "\nDischarged: " + discharged + "\nDeaths: " + deaths + "\nWeek on Week Infection Ratio: " + ratio
         update.message.reply_text(newCasesStatement)
 
