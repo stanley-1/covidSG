@@ -122,12 +122,12 @@ def pastMonth(update, context):
             pass
 
         #** Making Sense of Numbers **#
-        date = "\n" + pastCases[16]
-        infected = pastCases[18]
-        noMild = pastCases[19]
-        o2supp = pastCases[21]
-        icu = pastCases[23]
-        died = pastCases[25]
+        date = "\n" + pastCases[18]
+        infected = pastCases[20]
+        noMild = pastCases[21]
+        o2supp = pastCases[23]
+        icu = pastCases[25]
+        died = pastCases[27]
 
         
         pastCasesStatement = date + "\nInfected: " + infected + "\nHad No or Mild Symptoms: " + noMild + "\nRequired Oxygen Supplementation: "
@@ -331,12 +331,12 @@ def all(update, context):
             pass
 
         #** Making Sense of Numbers **#
-        date = "\n" + pastCases[16]
-        infected = pastCases[18]
-        noMild = pastCases[19]
-        o2supp = pastCases[21]
-        icu = pastCases[23]
-        died = pastCases[25]
+        date = "\n" + pastCases[18]
+        infected = pastCases[20]
+        noMild = pastCases[21]
+        o2supp = pastCases[23]
+        icu = pastCases[25]
+        died = pastCases[27]
 
         
         pastCasesStatement = date + "\nInfected: " + infected + "\nHad No or Mild Symptoms: " + noMild + "\nRequired Oxygen Supplementation: "
