@@ -69,24 +69,27 @@ def newCases(update, context):
 
         #** Making Sense of Numbers **#
         date = "\nDaily Caseload\nAs of" + newCases[0]
-        localPCR = newCases[2]
-        localART = newCases[4]
+        localPCR = newCases[4]
+        localART = newCases[6]
         localTotal = int(localPCR.replace(",", "")) + int(localART.replace(",", ""))
 
-        importPCR = newCases[6].split("Imported")[0]
-        importART = newCases[7]
+        importPCR = newCases[8].split("Imported")[0]
+        importART = newCases[9]
         importTotal = int(importPCR.replace(",", "")) + int(importART.replace(",", ""))
 
         totalNew = localTotal + importTotal
 
-        discharged = newCases[9]
-        deaths = newCases[11]
-        ratio = newCases[13]
-        
+        discharged = newCases[11]
+        deaths = newCases[13]
+
+        ratio = newCases[15]
+        movingAve = newCases[2]
+
         newCasesStatement = date + "\nLocal PCR: " + localPCR + "\nLocal ART: " + localART + "\nTotal New Local Cases: " + str(localTotal) + "\n"
         newCasesStatement += "\nImported PCR: " + importPCR + "\nImported ART: " + importART + "\nTotal New Imported Cases: " + str(importTotal) + "\n"
         newCasesStatement += "\nTotal New Cases: " + str(totalNew) + "\n"
-        newCasesStatement += "\nDischarged: " + discharged + "\nDeaths: " + deaths + "\nWeek on Week Infection Ratio: " + ratio
+        newCasesStatement += "\nDischarged: " + discharged + "\nDeaths: " + deaths + "\n" 
+        newCasesStatement += "\nWeek on Week Infection Ratio: " + ratio + "\n7-Day Moving Average of Local Cases: " + movingAve
         update.message.reply_text(newCasesStatement)
         
     except:
@@ -296,24 +299,27 @@ def all(update, context):
 
         #** Making Sense of Numbers **#
         date = "\nDaily Caseload\nAs of" + newCases[0]
-        localPCR = newCases[2]
-        localART = newCases[4]
+        localPCR = newCases[4]
+        localART = newCases[6]
         localTotal = int(localPCR.replace(",", "")) + int(localART.replace(",", ""))
 
-        importPCR = newCases[6].split("Imported")[0]
-        importART = newCases[7]
+        importPCR = newCases[8].split("Imported")[0]
+        importART = newCases[9]
         importTotal = int(importPCR.replace(",", "")) + int(importART.replace(",", ""))
 
         totalNew = localTotal + importTotal
 
-        discharged = newCases[9]
-        deaths = newCases[11]
-        ratio = newCases[13]
-        
+        discharged = newCases[11]
+        deaths = newCases[13]
+
+        ratio = newCases[15]
+        movingAve = newCases[2]
+
         newCasesStatement = date + "\nLocal PCR: " + localPCR + "\nLocal ART: " + localART + "\nTotal New Local Cases: " + str(localTotal) + "\n"
         newCasesStatement += "\nImported PCR: " + importPCR + "\nImported ART: " + importART + "\nTotal New Imported Cases: " + str(importTotal) + "\n"
         newCasesStatement += "\nTotal New Cases: " + str(totalNew) + "\n"
-        newCasesStatement += "\nDischarged: " + discharged + "\nDeaths: " + deaths + "\nWeek on Week Infection Ratio: " + ratio
+        newCasesStatement += "\nDischarged: " + discharged + "\nDeaths: " + deaths + "\n" 
+        newCasesStatement += "\nWeek on Week Infection Ratio: " + ratio + "\n7-Day Moving Average of Local Cases: " + movingAve
         update.message.reply_text(newCasesStatement)
 
         #*** Past Cases ***#
